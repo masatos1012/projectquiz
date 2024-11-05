@@ -1,3 +1,4 @@
+from django.contrib.sessions.models import Session
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 
@@ -73,3 +74,17 @@ def result_view(request):
         'total_score': total_score,
     }
     return render(request, 'result.html', context)
+
+
+def reset_session_view(request):
+    session_key = request.session.session_key
+    if session_key:
+        UserAnswer.objects.filter(session_key=session_key).delete()
+    return redirect('quiz:index')
+
+
+def reset_session_view(request):
+    session_key = request.session.session_key
+    if session_key:
+        Session.objects.filter(session_key=session_key).delete()
+    return redirect('quiz:index')

@@ -19,49 +19,52 @@
                                 <h2 class="h5 pt-2">基礎・初級</h2>
                             </div>
                         </div>
-                            <form method="post" action onsubmit="myButton.disabled = true; return true;">
-                                {% csrf_token %}
-                                <div class="mb-5">
-                                    <div class="border-bottom mb-5">
-                                        <h3 class="h4">
-                                            問題:{{ question.id }}
-                                            <span class="h6 text-muted">/40</span>
-                                        </h3>
-                                        <label class="form-label mt-2" for="quiestion">
-                                            <pre style="margin-left: 24px;">{{ question_text }}</pre>
-                                        </label>
-                                    </div>
-                                    <div class="form-check border-bottom mb-5">
-                                        <input class="form-check-input" type="radio" name="answer" id="radio1" value="1">
-                                        <label class="form-check-label" for="radio1">
-                                            <p class="h5">選択 1</p>
-                                            <pre>{{ option1 }}</pre>
-                                        </label>
-                                    </div>
-                                    <div class="form-check border-bottom mb-5">
-                                        <input class="form-check-input" type="radio" name="answer" id="radio2" value="2">
-                                        <label class="form-check-label" for="radio2">
-                                            <p class="h5">選択 2</p>
-                                            <pre>{{ option2 }}</pre>
-                                        </label>
-                                    </div>
-                                    <div class="form-check border-bottom mb-5">
-                                        <input class="form-check-input" type="radio" name="answer" id="radio3" value="3">
-                                        <label class="form-check-label" for="radio3">
-                                            <p class="h5">選択 3</p>
-                                            <pre>{{ option3 }}</pre>
-                                        </label>
-                                    </div>
-                                    <div class="form-check border-bottom mb-5">
-                                        <input class="form-check-input" type="radio" name="answer" id="radio4" value="4">
-                                        <label class="form-check-label" for="radio4">
-                                            <p class="h5">選択 4</p>
-                                            <pre>{{ option4 }}</pre>
-                                        </label>
-                                    </div>
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-lg" style="color: white; background-color: #1CBC9B; width: 100%;" onmouseout="this.style.opacity='1.0'" onmouseover="this.style.opacity='0.8'" name="myButton" onfocus="this.blur();">
-                                            <i class="bi bi-check-circle"></i>
+                        <form method="post" action onsubmit="myButton.disabled = true; return true;">
+                            {% csrf_token %}
+                            <div class="mb-5">
+                                <div class="border-bottom mb-5">
+                                    <h3 class="h4">
+                                        問題:{{ question.id }}
+                                        <span class="h6 text-muted">/40</span>
+                                    </h3>
+                                    <label class="form-label mt-2" for="quiestion">
+                                        <pre style="margin-left: 24px;">{{ question_text }}</pre>
+                                    </label>
+                                </div>
+                                <div class="form-check border-bottom mb-5">
+                                    <input class="form-check-input" type="radio" name="answer" id="radio1" value="1">
+                                    <label class="form-check-label" for="radio1">
+                                        <p class="h5">選択 1</p>
+                                        <pre>{{ option1 }}</pre>
+                                    </label>
+                                </div>
+                                <div class="form-check border-bottom mb-5">
+                                    <input class="form-check-input" type="radio" name="answer" id="radio2" value="2">
+                                    <label class="form-check-label" for="radio2">
+                                        <p class="h5">選択 2</p>
+                                        <pre>{{ option2 }}</pre>
+                                    </label>
+                                </div>
+                                <div class="form-check border-bottom mb-5">
+                                    <input class="form-check-input" type="radio" name="answer" id="radio3" value="3">
+                                    <label class="form-check-label" for="radio3">
+                                        <p class="h5">選択 3</p>
+                                        <pre>{{ option3 }}</pre>
+                                    </label>
+                                </div>
+                                <div class="form-check border-bottom mb-5">
+                                    <input class="form-check-input" type="radio" name="answer" id="radio4" value="4">
+                                    <label class="form-check-label" for="radio4">
+                                        <p class="h5">選択 4</p>
+                                        <pre>{{ option4 }}</pre>
+                                    </label>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-lg"
+                                            style="color: white; background-color: #1CBC9B; width: 100%;"
+                                            onmouseout="this.style.opacity='1.0'" onmouseover="this.style.opacity='0.8'"
+                                            name="myButton" onfocus="this.blur();">
+                                        <i class="bi bi-check-circle"></i>
                                         解答する
                                     </button>
                                 </div>
