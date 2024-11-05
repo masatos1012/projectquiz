@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Log In | Private Diary{% endblock %}
+
+{% block active_login %}active{% endblock %}
+
+{% block header%}{% endblock %}
+
+{% block contents %}
+<div class="container">
+    <main style="margin: 0 auto; max-width: 696px;">
+        <h2 class="text-center" style="margin: 32px">ログイン</h2>
+        <div class="row">
+            <div class="my-div-style">
+
+                <form method="POST" novalidate="">
+                    {% csrf_token %}
+                    <input type="hidden" name="csrfmiddlewaretoken"
+                           value="i5QgzEFQqiggPZZV0wJHB1qTF86AEqn4P7eVrzqLLTzgtKd7u1gcXx3eovUjd8kZ">
+
+
+                    <div class="mb-3" style="margin: 0 auto; max-width: 576px">
+                        <label class="from-label h5">ユーザー名</label>
+                        <input class="form-control" name="username" autofocus="">
+                    </div>
+
+                    <div class="mb-5" style="margin: 0 auto; max-width: 576px">
+                        <label class="from-label h5">パスワード</label>
+                        <input class="form-control" type="password" name="password">
+                    </div>
+
+                    <div class="mb-4" style="margin: 0 auto; max-width: 576px">
+                        <button type="submit" class="btn btn-lg"
+                                style="color: white; background-color: rgb(28, 188, 155); width: 100%; opacity: 1;"
+                                value="ログイン" onmouseout="this.style.opacity='1.0'"
+                                onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">ログイン
+                        </button>
+                    </div>
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                    {% endif %}
+                    <!-- <button class="btn btn-primary" type="submit">ログイン</button> -->
+                    <p class="mb-1 text-muted text-center" style="margin: 0 auto; max-width: 576px">
+                        全ての試験を同じアカウントで利用できます。
+                    </p>
+                    <p class="mb-4 text-muted text-center" style="margin: 0 auto; max-width: 576px">
+                        アカウントが不明な場合は作り直して下さい。
+                    </p>
+                </form>
+                <div class="container text-center mb-5 mt-5 h5">
+                    <a href="/accounts/signup/">ユーザー登録 <i class="bi bi-arrow-right-circle"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>結果発表</title>
+</head>
+<body>
+    <h1>結果発表</h1>
+    <p>合計得点: {{ total_score }} / {{ user_answers.count }}</p>
+    <ul>
+        {% for answer in user_answers %}
+            <li>
+                <strong>問題 {{ forloop.counter }}:</strong> {{ answer.question.question_text }}<br>
+                <strong>あなたの選択:</strong> {{ answer.selected_option }}<br>
+                <strong>正解:</strong> {{ answer.question.correct_option }}<br>
+                {% if answer.is_correct %}
+                    <span style="color: green;">正解</span>
+                {% else %}
+                    <span style="color: red;">不正解</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>解答結果</title>
+</head>
+<body>
+<h1>解答結果</h1>
+<form method="post">
+    {% csrf_token %}
+    <p>あなたの選択: {{ selected_option }}</p>
+    <p>正解: {{ question.correct_option }}</p>
+    {% if is_correct %}
+    <p>正解です！</p>
+    {% else %}
+    <p>不正解です。</p>
+    {% endif %}
+    <p>解説: {{ question.explanation }}</p>
+    <a href="{% url 'quiz:question' next_pk %}">次の問題へ</a>
+</form>
+</body>
+</html>

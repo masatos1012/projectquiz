@@ -1,0 +1,306 @@
+{% extends 'base.html'%}
+
+{% load static %}
+
+{% block title %}Python3エンジニア認定基礎{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block contents %}
+<section>
+    <div class="container" style="max-width: 1070px">
+        <div class="row gx-0">
+            <div class="col">
+                <div class="container">
+                    <p class="mb-0 mt-4 text-center index-title">模擬試験アプリ<br>Python3エンジニア認定試験</p>
+                    <div class="sticky-top" style="height: 20px; background-color: white;"></div>
+                    <div class="tab-content" id="panel-munus">
+                        <div class="tab-pane show active pt-3" id="panel-menu01">
+                            <h2 class="text-center mb-6 mt-4 h3">模擬試験</h2>
+                            <div class="container-fluid mb-4 pt-4 border-top border-3" style="max-width: 660px;">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3 ps-3 ps-md-4" style="width: 330px; margin: 0 auto;">
+                                        <h6 class="mb-md-3 mt-md-3"><i class="bi bi-check-circle"></i> レベル別の試験で段階的に学習可能
+                                        </h6>
+                                        <h6 class="mb-md-3"><i class="bi bi-check-circle"></i> 解説も学習記録もすべて無料
+                                        </h6>
+                                        <h6><i class="bi bi-check-circle"></i> 一問一答で各40問、時間制限なし</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-2 text-center">
+                                            <a href="{% url 'quiz:question' question.pk %}" class="btn btn-md"
+                                               style="color: white; background-color: #1CBC9B; width: 250px;"
+                                               onmouseout="this.style.opacity='1.0'"
+                                               onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">
+                                                基礎・初級スタート
+                                                <i class="bi bi-arrow-right-circle"></i>
+                                            </a>
+
+
+                                        </div>
+                                        <div class="mb-2 text-center">
+                                            <a href="#" class="btn btn-md"
+                                               style="color: white; background-color: #1CBC9B; width: 250px;"
+                                               onmouseout="this.style.opacity='1.0'"
+                                               onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">基礎・中級スタート
+                                                <i class="bi bi-arrow-right-circle"></i></a>
+                                        </div>
+                                        <div class="mb-2 text-center">
+                                            <a href="#" class="btn btn-md"
+                                               style="color: white; background-color: #1CBC9B; width: 250px;"
+                                               onmouseout="this.style.opacity='1.0'"
+                                               onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">基礎・上級スタート
+                                                <i class="bi bi-arrow-right-circle"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h2 class="text-center mb-6 mt-5 h3">学習履歴</h2>
+                            <div class="container-fluid mb-4 pt-4 border-top border-3" style="max-width: 660px;">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3 ps-3 ps-md-4" style="width: 330px; margin: 0 auto;">
+                                        <h6 class="mb-md-3 mt-md-3"><i class="bi bi-check-circle"></i> ユーザー登録すると続きから再開可能
+                                        </h6>
+                                        <h6 class="mb-md-3"><i class="bi bi-check-circle"></i> 正誤表で誤問題の解説を再チェック
+                                        </h6>
+                                        <h6><i class="bi bi-check-circle"></i> 分野別の正解率を分析して弱点を克服</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-2 text-center">
+                                            <a href="#" class="btn btn-md"
+                                               style="color: white; background-color: rgb(28, 188, 155); width: 250px; opacity: 1;"
+                                               onmouseout="this.style.opacity='1.0'"
+                                               onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">基礎・初級学習履歴
+                                                <i class="bi bi-arrow-right-circle"></i></a>
+                                        </div>
+                                        <div class="mb-2 text-center">
+                                            <a href="#" class="btn btn-md"
+                                               style="color: white; background-color: rgb(28, 188, 155); width: 250px; opacity: 1;"
+                                               onmouseout="this.style.opacity='1.0'"
+                                               onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">基礎・中級学習履歴
+                                                <i class="bi bi-arrow-right-circle"></i></a>
+                                        </div>
+                                        <div class="mb-2 text-center">
+                                            <a href="#" class="btn btn-md"
+                                               style="color: white; background-color: rgb(28, 188, 155); width: 250px; opacity: 1;"
+                                               onmouseout="this.style.opacity='1.0'"
+                                               onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">基礎・上級学習履歴
+                                                <i class="bi bi-arrow-right-circle"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h2 class="text-center mb-6 mt-5 h3">ユーザー</h2>
+                            <div class="container-fluid mb-4 pt-4 border-top border-3" style="max-width: 660px;">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3 ps-3 ps-md-4" style="width: 330px; margin: 0 auto;">
+                                        <h6 class="mb-md-3 mt-md-3"><i class="bi bi-check-circle"></i> IDとパスワードだけで登録可能
+                                        </h6>
+                                        <h6 class="mb-md-3"><i class="bi bi-check-circle"></i> ログインすると学習履歴を自動で記録
+                                        </h6>
+                                        <h6 class="mb-md-3"><i class="bi bi-check-circle"></i> ユーザー登録しなくても学習可能
+                                        </h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-2 text-center">
+                                            <a href="{% url 'account_signup' %}" class="btn btn-md"
+                                               style="color: white; background-color: #1CBC9B; width: 250px;"
+                                               onmouseout="this.style.opacity='1.0'"
+                                               onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">ユーザー登録 <i
+                                                    class="bi bi-arrow-right-circle"></i></a>
+                                        </div>
+                                        <div class="mb-2 text-center">
+                                            <a href="{% url 'account_login' %}" class="btn btn-md"
+                                               style="color: white; background-color: #1CBC9B; width: 250px;"
+                                               onmouseout="this.style.opacity='1.0'"
+                                               onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">ログイン <i
+                                                    class="bi bi-arrow-right-circle"></i></a>
+                                        </div>
+                                        <div class="mb-2 text-center">
+                                            <a href="{% url 'account_logout' %}" class="btn btn-md"
+                                               style="color: white; background-color: #1CBC9B; width: 250px; pointer-events: none; opacity: 0.5;"
+                                               onmouseout="this.style.opacity='1.0'"
+                                               onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">ログアウト <i
+                                                    class="bi bi-arrow-right-circle"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="text-center mb-6 mt-4 h5">アプリ制作者</h3>
+                            <div class="container-fluid mb-4 mt-3 pt-4 border-top border-3" style="max-width: 660px;">
+                                <table class="table table-light table-bordered mt-md-2 mt-sm-2">
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row" class="text-nowrap">名前</th>
+                                        <td>関　将杜</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-nowrap">連絡先</th>
+                                        <td><i class="bi bi-envelope-fill"></i>
+                                            <a href="mailto:masatosama1012@gmail.com" target="_blank">masatosama1012@gmail.com</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-nowrap">取得資格</th>
+                                        <td>Python3エンジニア認定基礎試験・データ分析試験・実践試験<br>等</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br>
+                            <h3 class="text-center mb-6 mt-5 h5">制作者の合格体験（基礎試験）</h3>
+                            <p class="mt-3">
+                                資格の公式サイトで紹介されている基礎試験の模擬試験を解いた際、試験を中断したり、結果を履歴で確認したいと感じて、本アプリを制作しました。</p>
+                            <p>本アプリはPythonのDjangoで制作しています。</p>
+                            <br>
+                            <br>
+                            <br>
+                            <h3 class="text-center mb-6 mt-6 h5">Python3エンジニア認定基礎試験</h3>
+                            <div class="container-fluid mb-6 mt-3 pt-4 border-top border-3" style="max-width: 660px;">
+                                <p>Python3エンジニア認定試験は、Pythonエンジニア育成推進協会が主催する国内唯一のPython資格です。</p>
+                                <p>基礎試験ではPythonの基本的な使い方や仕組み、文法などの知識が問われます【<a
+                                        href="https://www.pythonic-exam.com/exam/basic" target="_blank">公式サイト</a>】。
+                                </p>
+                                <p>出題範囲はオライリージャパンの公式書籍【<a href="https://amzn.to/3Jx97TD" target="_blank">Pythonチュートリアル
+                                    第4版</a>】がベースとなっており、本アプリの解説文にも書籍のページ番号を記載しています。</p>
+                                <p>公式書籍があるため学習しやすい資格ですが、試験の過去問題は公開されていません。</p>
+                                <p>
+                                    試験の難易度はそれほど高くないため、本アプリの上級試験で正解率50%程度の理解度があれば、合格できると思われます（個人の感想であり、合格を約束するものではありません）。</p>
+                            </div>
+                            <br>
+                            <h3 class="text-center mb-6 mt-5 h5">試験概要</h3>
+                            <div class="container-fluid mb-4 mt-3 pt-4 border-top border-3" style="max-width: 660px;">
+                                <table class="table table-light table-bordered mt-md-2 mt-sm-2">
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row" class="text-nowrap">申込方法</th>
+                                        <td>オデッセイコミュニケーションズのサイトで申し込みます【<a
+                                                href="https://cbt.odyssey-com.co.jp/pythonic-exam.html" target="_blank">公式サイト</a>】。
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-nowrap">試験方式</th>
+                                        <td>パソコン上で問題に答えるCBT形式で、全国のテストセンターで実施されています。</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-nowrap">受験料</th>
+                                        <td>11,000円（税込）、学割は5,500円（税込）</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-nowrap">問題数</th>
+                                        <td>40問</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-nowrap">試験時間</th>
+                                        <td>60分</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-nowrap">合格ライン</th>
+                                        <td>正解率70%（正解数28問）</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-nowrap">合否</th>
+                                        <td>試験終了後、その場で分かります（合格証は4～6週間以内に郵送されます）。</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <h3 class="text-center mb-6 mt-6 h5">出題範囲（公式書籍）</h3>
+                            <div class="container-fluid mb-4 pt-4 border-top border-3" style="max-width: 660px;">
+                                <table class="table table-light table-bordered mt-md-2 mt-sm-2">
+                                    <tbody>
+                                    <tr>
+                                        <th class="text-center">章</th>
+                                        <th class="text-center">タイトル</th>
+                                        <th class="text-nowrap text-center">出題数</th>
+                                    </tr>
+                                    <tr></tr>
+                                    <tr>
+                                        <td class="text-nowrap text-center">1章</td>
+                                        <td>食欲をそそってみようか</td>
+                                        <td class="text-nowrap text-center">1問</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap text-center">2章</td>
+                                        <td>Pythonインタープリタの使い方</td>
+                                        <td class="text-nowrap text-center">1問</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap text-center">3章</td>
+                                        <td>気楽な入門編</td>
+                                        <td class="text-nowrap text-center">6問</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap text-center">4章</td>
+                                        <td>制御構造ツール</td>
+                                        <td class="text-nowrap text-center">9問</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap text-center">5章</td>
+                                        <td>データ構造</td>
+                                        <td class="text-nowrap text-center">7問</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap text-center">6章</td>
+                                        <td>モジュール</td>
+                                        <td class="text-nowrap text-center">2問</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap text-center">7章</td>
+                                        <td>入出力</td>
+                                        <td class="text-nowrap text-center">1問</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap text-center">8章</td>
+                                        <td>エラーと例外</td>
+                                        <td class="text-nowrap text-center">4問</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap text-center">9章</td>
+                                        <td>クラス</td>
+                                        <td class="text-nowrap text-center">2問</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap text-center">10章</td>
+                                        <td>標準ライブラリめぐり</td>
+                                        <td class="text-nowrap text-center">4問</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap text-center">11章</td>
+                                        <td>標準ライブラリめぐり - PartII</td>
+                                        <td class="text-nowrap text-center">1問</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap text-center">12章</td>
+                                        <td>仮想環境とパッケージ</td>
+                                        <td class="text-nowrap text-center">1問</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap text-center">13章</td>
+                                        <td>次はなに?</td>
+                                        <td class="text-nowrap text-center">0問</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap text-center">14章</td>
+                                        <td>対話環境での入力行編集とヒストリ置換</td>
+                                        <td class="text-nowrap text-center">1問</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p class="mt-4">本アプリの模擬試験は、この出題数を元に配分しています。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
