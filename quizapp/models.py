@@ -20,9 +20,9 @@ class UserAnswer(models.Model):
     answered_at = models.DateTimeField(default=timezone.now, verbose_name="回答日時")
 
 
-class Session(models.Model):
-    session_key = models.CharField(max_length=255, verbose_name="セッションキー", unique=True, default="default_session_key")
-    current_question = models.ForeignKey(Question, on_delete=models.SET_NULL, null=True, verbose_name="現在の問題ID",
-                                         default=1)
-    started_at = models.DateTimeField(auto_now_add=True, verbose_name="セッション開始日時")
-    last_activity_at = models.DateTimeField(auto_now=True, verbose_name="最終アクティビティ日時")
+# class Session(models.Model):
+#     session_key = models.CharField(max_length=255, verbose_name="セッションキー", unique=True, default="default_session_key")
+#     current_question = models.ForeignKey(Question, on_delete=models.SET_NULL, null=True, verbose_name="現在の問題ID",
+#                                          default=1)
+#     started_at = models.DateTimeField(auto_now_add=True, verbose_name="セッション開始日時")
+#     last_activity_at = models.DateTimeField(auto_now=True, verbose_name="最終アクティビティ日時")

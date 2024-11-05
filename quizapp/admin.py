@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import Question, UserAnswer, Session
+from .models import Question, UserAnswer
+''', Session'''
 
 
 @admin.register(Question)
@@ -15,7 +16,7 @@ class UserAnswerAdmin(admin.ModelAdmin):
     search_fields = ('session_key', 'answered_at')
 
 
-@admin.register(Session)
-class SessionAdmin(admin.ModelAdmin):
-    list_display = ('session_key', 'current_question', 'started_at', 'last_activity_at')
-    search_fields = ('session_key', 'current_question__question_text')
+# @admin.register(Session)
+# class SessionAdmin(admin.ModelAdmin):
+#     list_display = ('session_key', 'current_question', 'started_at', 'last_activity_at')
+#     search_fields = ('session_key', 'current_question__question_text')
