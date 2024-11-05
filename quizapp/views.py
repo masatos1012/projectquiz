@@ -65,6 +65,7 @@ def question_view(request, pk):
         return render(request, 'question.html', context)
 
 
+
 def result_view(request):
     session_key = request.session.session_key
     user_answers = UserAnswer.objects.filter(session_key=session_key)

@@ -1,10 +1,242 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>結果発表</title>
-</head>
-<body>
+{% extends 'base.html'%}
+
+{% load static %}
+
+{% block title %}Python3エンジニア認定基礎{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block contents %}
+<body style="padding: 0px 0px 107px;">
+<div class="contaner" style="max-width: 1070px">
+    <div class="row gx-0">
+        <div class="col">
+            <div class="container">
+                <main style="margin: 0 auto;">
+                    <div>
+                        <h2 class="text-center mt-4 mb-2">基礎・初級の正誤表</h2>
+                        <p class="h6 text-center text-muted">開始日: 2023年06月06日 08時15分</p>
+                    </div>
+                    <p class="h6 mb-5 mt-3 mt-md-4 text-center alert alert-warning">
+                        問題番号をクリックして誤問題をチェック
+                        <br>
+                        全問解答すると分野別の正解率を表示
+                    </p>
+                    <div style="text-align: center;">
+                        <table class="table table-bordered">
+                            <tbody>
+<!--                            {% for answer in user_answers %}-->
+                            <tr style="color: white; padding: 20px; background-color: #1CBC9B;">
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問{{ forloop.counter }}</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問2</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問3</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問4</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問5</a>
+                                </th>
+                            <tr>
+<!--    {% if answer.is_correct %}-->
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+<!--        {% endfor %}-->
+                            <tr style="color: white; padding: 20px; background-color: #1CBC9B;">
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問6</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問7</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問8</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問9</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問10</a>
+                                </th>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="color: white; padding: 20px; background-color: #1CBC9B;">
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問11</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問12</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問13</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問14</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問15</a>
+                                </th>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="color: white; padding: 20px; background-color: #1CBC9B;">
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問16</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問17</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問18</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問19</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問20</a>
+                                </th>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="color: white; padding: 20px; background-color: #1CBC9B;">
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問21</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問22</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問23</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問24</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問25</a>
+                                </th>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="color: white; padding: 20px; background-color: #1CBC9B;">
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問26</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問27</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問28</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問29</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問30</a>
+                                </th>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="color: white; padding: 20px; background-color: #1CBC9B;">
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問31</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問32</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問33</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問34</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問35</a>
+                                </th>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr style="color: white; padding: 20px; background-color: #1CBC9B;">
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問36</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問37</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問38</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問39</a>
+                                </th>
+                                <th class="text-nowrap">
+                                    <a href="#" class="check_style">問40</a>
+                                </th>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr style="color: white; padding: 20px; background-color: #BF665E;">
+                                <th class="text-nowrap">正解数</th>
+                                <th class="text-nowrap">正解率</th>
+                            </tr>
+                            <tr>
+                                <td>{{ total_score }}</td>
+                                <td>bb</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table table-bordered"></table>
+                        <div id="social-buttons"></div>
+                        <p class="text-center small text-muted">結果をシェア</p>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+
     <h1>結果発表</h1>
     <p>合計得点: {{ total_score }} / {{ user_answers.count }}</p>
     <ul>
@@ -21,6 +253,6 @@
             </li>
         {% endfor %}
     </ul>
-    <a href="{% url 'quiz:reset_session' %}">TOPページへ戻る</a>  <!-- 新しいビューにリダイレクト -->
+<a href="{% url 'quiz:reset_session' %}">TOPページへ戻る</a>  <!-- 新しいビューにリダイレクト -->
 </body>
-</html>
+{% endblock %}
