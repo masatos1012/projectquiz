@@ -1,9 +1,61 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>解答結果</title>
-</head>
+{% extends 'base.html'%}
+
+{% load static %}
+
+{% block title %}Python3エンジニア認定基礎{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block contents %}
+<div class="container" style="max-width: 1070px">
+    <div class="row gx-0">
+        <div class="col">
+            <div class="container">
+                <main style="margin: 0 auto;">
+                    <div class="d-flex justify-content-end">
+                        <div class="text-center mt-3"
+                             style="color: #F27457; border: solid; border-color: #F27457; border-radius: 5px; width: 120px;">
+                            <h2 class="h5 pt-2">基礎・初級</h2>
+                        </div>
+                    </div>
+                    <p class="h6 mb-4 mt-0 p-0 pt-4 pb-md-3 text-center alert alert-light">
+                        ログインしていないため学習履歴は残りません</p>
+                    <div>
+                        {% if is_correct %}
+                        <div class="h3 mb-5 mt-4 text-center alert alert-danger">
+                            <i class="bi bi-circle text-success" style="font-size: 1.7rem; font-weight: 900;"></i>
+                            正解
+                        </div>
+                        {% else %}
+                        <div class="h3 mb-5 mt-4 text-center alert alert-danger">
+                            <i class="bi bi-x-lg text-danger" style="font-size: 1.7rem; font-weight: 900;"></i>
+                            残念
+                        </div>
+                        {% endif %}
+                        <p class="h6 text-muted text-center">あなたの解答:{{ selected_option }}</p>
+                        <p class="h5 mb-4 mb-md-5 text-center">正解: {{ question.correct_option }}</p>
+                        <h3 class="h4">解説</h3>
+                        <pre style="width: 100%;">
+                            <code>{{ question.explanation }}</code>
+                        </pre>
+                        <a href="{% url 'quiz:question' next_pk %}" class="btn btn-lg" style="color: white; background-color: #1CBC9B; width: 100%;"
+                           onmouseout="this.style.opacity='1.0'"
+                           onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">
+                            次の問題
+                            <i class="bi bi-arrow-right-circle"></i>
+                        </a>
+
+
+                    </div>
+                    <form method="post" action onsubmit="myButton.disabled = true; return true;"></form>
+                </main>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+
 <body>
 <h1>解答結果</h1>
 <form method="post">
@@ -19,4 +71,5 @@
     <a href="{% url 'quiz:question' next_pk %}">次の問題へ</a>
 </form>
 </body>
-</html>
+{% endblock %}
+
