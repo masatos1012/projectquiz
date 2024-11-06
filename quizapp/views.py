@@ -1,4 +1,3 @@
-from django.contrib.sessions.models import Session
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 
@@ -14,6 +13,9 @@ class IndexView(generic.TemplateView):
         return context
 
 
+from django.utils import timezone
+
+
 def question_view(request, pk):
     question = get_object_or_404(Question, pk=pk)
     total_questions = Question.objects.count()  # 登録されている問題数を取得
@@ -22,6 +24,12 @@ def question_view(request, pk):
     if not session_key:
         request.session.create()
         session_key = request.session.session_key
+        request.session['started_at'] = timezone.now().strftime('%Y-%m-%d %H:%M:%S')  # セッションの開始時刻を設定
+
+    if 'started_at' not in request.session:
+        request.session['started_at'] = timezone.now().strftime('%Y-%m-%d %H:%M:%S')  # セッションの開始時刻を設定
+
+    request.session['last_activity_at'] = timezone.now().strftime('%Y-%m-%d %H:%M:%S')  # 最終アクティビティ時刻を更新
 
     if request.method == 'POST':
         selected_option = request.POST.get('answer')
@@ -69,9 +77,16 @@ def result_view(request):
     session_key = request.session.session_key
     user_answers = UserAnswer.objects.filter(session_key=session_key)
     total_score = user_answers.filter(is_correct=True).count()
+
+    # セッションの開始時刻と最終アクティビティ時刻を取得
+    started_at = request.session.get('started_at')
+    last_activity_at = request.session.get('last_activity_at')
+
     context = {
         'user_answers': user_answers,
         'total_score': total_score,
+        'started_at': started_at,
+        'last_activity_at': last_activity_at,
     }
     return render(request, 'result.html', context)
 
@@ -80,11 +95,4 @@ def reset_session_view(request):
     session_key = request.session.session_key
     if session_key:
         UserAnswer.objects.filter(session_key=session_key).delete()
-    return redirect('quiz:index')
-
-
-def reset_session_view(request):
-    session_key = request.session.session_key
-    if session_key:
-        Session.objects.filter(session_key=session_key).delete()
     return redirect('quiz:index')
