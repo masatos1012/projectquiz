@@ -104,6 +104,32 @@
                                         </h6>
                                     </div>
                                     <div class="col-md-6">
+                                        {% if user.is_authenticated %}
+                                        <div class="mb-2 text-center">
+                                            <a href="#" class="btn btn-md"
+                                               style="color: white; background-color: #1CBC9B; width: 250px; pointer-events: none; opacity: 0.5;"
+                                               onmouseout="this.style.opacity='1.0'"
+                                               onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">ユーザー登録 <i
+                                                    class="bi bi-arrow-right-circle"></i></a>
+                                        </div>
+                                        <div class="mb-2 text-center">
+                                            <a href="#" class="btn btn-md"
+                                               style="color: white; background-color: #1CBC9B; width: 250px; pointer-events: none; opacity: 0.5;"
+                                               onmouseout="this.style.opacity='1.0'"
+                                               onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">ログイン <i
+                                                    class="bi bi-arrow-right-circle"></i></a>
+                                        </div>
+                                        <div class="mb-2 text-center">
+                                            <a href="{% url 'account_logout' %}" class="btn btn-md"
+                                               style="color: white; background-color: #1CBC9B; width: 250px;"
+                                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト
+                                                <i class="bi bi-arrow-right-circle"></i></a>
+                                            <form id="logout-form" action="{% url 'account_logout' %}" method="POST"
+                                                  style="display: none;">
+                                                {% csrf_token %}
+                                            </form>
+                                        </div>
+                                        {% else %}
                                         <div class="mb-2 text-center">
                                             <a href="{% url 'account_signup' %}" class="btn btn-md"
                                                style="color: white; background-color: #1CBC9B; width: 250px;"
@@ -119,12 +145,13 @@
                                                     class="bi bi-arrow-right-circle"></i></a>
                                         </div>
                                         <div class="mb-2 text-center">
-                                            <a href="{% url 'account_logout' %}" class="btn btn-md"
+                                            <a href="#" class="btn btn-md"
                                                style="color: white; background-color: #1CBC9B; width: 250px; pointer-events: none; opacity: 0.5;"
                                                onmouseout="this.style.opacity='1.0'"
                                                onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">ログアウト <i
                                                     class="bi bi-arrow-right-circle"></i></a>
                                         </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
