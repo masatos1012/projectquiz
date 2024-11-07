@@ -7,68 +7,49 @@
 
 {% block contents %}
 {% block header %}{% endblock %}
+
 <div class="container">
     <main style="margin: 0 auto; max-width: 696px;">
-
-
         <h2 class="text-center" style="margin: 32px">ユーザー登録</h2>
-
-        <form method="POST" action="/signup/" novalidate="">
-            <input type="hidden" name="csrfmiddlewaretoken"
-                   value="pjToUapSoQUehnNG28yuQ8cocrSsUttwWlh3M5aNJrdeV81SwD5ZcEPJVOGbtbqr">
-
+        <form method="POST" action="{% url 'account_signup' %}" novalidate="">
+            {% csrf_token %}
             <div class="mb-3" style="margin: 0 auto; max-width: 576px">
                 <div>
                     <label class="from-label h5">ユーザー名（半角英数6文字以上）</label>
-                    <input type="text" name="username" maxlength="50" autofocus="" class="form-control" required=""
-                           id="id_username">
+                    <input type="text" name="username" maxlength="50" autofocus="" class="form-control" required="" id="id_username">
                 </div>
                 <div class="mt-2 text-danger signup-list" style="margin: 0 auto; max-width: 576px;">
-
+                    {{ form.username.errors }}
                 </div>
             </div>
-
             <div class="mb-3" style="margin: 0 auto; max-width: 576px">
                 <div>
                     <label class="from-label h5">パスワード（半角英数6文字以上）</label>
-                    <input type="password" name="password1" autocomplete="new-password" class="form-control" required=""
-                           id="id_password1" aria-autocomplete="list">
+                    <input type="password" name="password1" autocomplete="new-password" class="form-control" required="" id="id_password1" aria-autocomplete="list">
                 </div>
                 <div class="mt-2 text-danger signup-list" style="margin: 0 auto; max-width: 576px;">
-
+                    {{ form.password1.errors }}
                 </div>
             </div>
-
             <div class="mb-5" style="margin: 0 auto; max-width: 576px">
                 <div>
                     <label class="from-label h5">パスワード（確認）</label>
-                    <input type="password" name="password2" autocomplete="new-password" class="form-control" required=""
-                           id="id_password2">
+                    <input type="password" name="password2" autocomplete="new-password" class="form-control" required="" id="id_password2">
                 </div>
                 <div class="mt-2 text-danger signup-list" style="margin: 0 auto; max-width: 576px;">
-
+                    {{ form.password2.errors }}
                 </div>
             </div>
-
             <div class="mb-4" style="margin: 0 auto; max-width: 576px">
-                <button type="submit" class="btn btn-lg" style="color: white; background-color: #1CBC9B; width: 100%"
-                        value="登録する" onmouseout="this.style.opacity='1.0'" onmouseover="this.style.opacity='0.8'"
-                        onfocus="this.blur();">登録する
-                </button>
+                <button type="submit" class="btn btn-lg" style="color: white; background-color: #1CBC9B; width: 100%" value="登録する" onmouseout="this.style.opacity='1.0'" onmouseover="this.style.opacity='0.8'" onfocus="this.blur();">登録する</button>
             </div>
-
-
-            <p class="mb-1 text-muted text-center" style="margin: 0 auto; max-width: 576px">
-                全ての試験を同じアカウントで利用できます。
-            </p>
-            <p class="mb-4 text-muted text-center" style="margin: 0 auto; max-width: 576px">
-                アカウントが不明な場合は作り直して下さい。
-            </p>
-
+            <p class="mb-1 text-muted text-center" style="margin: 0 auto; max-width: 576px">全ての試験を同じアカウントで利用できます。</p>
+            <p class="mb-4 text-muted text-center" style="margin: 0 auto; max-width: 576px">アカウントが不明な場合は作り直して下さい。</p>
         </form>
-
     </main>
 </div>
+
+
 <!-- <div class="container">
     <div class="row">
         <div class="my-div-style">
